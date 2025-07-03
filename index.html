@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Тестовая страница</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1 id="title">Привет!</h1>
+    <button id="toggleBtn">Темная тема</button>
+
+    <script>
+        const body = document.body
+        const button = document.getElementById("toggleBtn");
+
+        button.addEventListener("click", () => {
+            body.classList.toggle("dark-mode");
+
+            button.textContent = title.classList.contains("hidden") ? "Светлая тема" : "Темная тема";
+        });
+    </script>
+</body>
+</html>
