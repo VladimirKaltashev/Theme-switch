@@ -16,7 +16,11 @@
         button.addEventListener("click", () => {
             body.classList.toggle("dark-mode");
 
-            button.textContent = title.classList.contains("hidden") ? "Темная тема" : "Светлая тема";
+            if (body.classList.contains("dark-mode")) {
+                button.textContent = "Светлая тема";
+            } else {
+                button.textContent = "Темная тема";
+            }
         });
     </script>
 </body>
