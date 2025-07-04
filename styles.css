@@ -1,9 +1,10 @@
+/* Базовые стили для светлой темы */
 body {
     background-color: #ffffff;
     color: #000000;
     font-family: Arial, sans-serif;
     text-align: center;
-    transition: all 0.3s ease; /* плавный переход */
+    transition: all 0.3s ease;
     margin-top: 100px;
 }
 
@@ -26,6 +27,7 @@ h1 {
     font-size: 2em;
 }
 
+/* Стили для тёмной темы (через класс .dark-mode) */
 .dark-mode {
     background-color: #121212;
     color: #ffffff;
@@ -38,4 +40,143 @@ h1 {
 
 .dark-mode button:hover {
     background-color: #e0e0e0;
+}
+
+/* Обновлённые стили для кнопки */
+#toggleBtn {
+    padding: 12px;
+    border: none;
+    border-radius: 50%;
+    background-color: #333333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#toggleBtn:hover {
+    background-color: #555555;
+    transform: scale(1.1);
+}
+
+.dark-mode #toggleBtn {
+    background-color: #ffffff;
+}
+
+.dark-mode #toggleBtn:hover {
+    background-color: #dddddd;
+}
+
+/* Стили для иконки */
+#themeIcon {
+    filter: invert(0);
+    transition: all 0.3s ease;
+}
+
+.dark-mode #themeIcon {
+    filter: invert(1);
+}
+
+/* Контейнер для кнопки (фиксированная позиция) */
+.theme-toggle-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000; 
+}
+
+.notes-container {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Центрирование содержимого */
+}
+
+.dark-mode .notes-container {
+    background-color: rgba(30, 30, 30, 0.9);
+}
+
+#notesTextarea {
+    width: 100%;
+    min-height: 40px;
+    max-height: 200px; /* Максимальная высота */
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    resize: none; /* Запрещаем ручное изменение размера */
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    box-sizing: border-box;
+    overflow-y: auto; /* Показываем вертикальную прокрутку при переполнении */
+    display: block;
+}
+.dark-mode #notesTextarea {
+    background-color: #333;
+    color: #fff;
+    border-color: #555;
+}
+
+.notes-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.notes-controls button {
+    flex-grow: 1;
+    padding: 8px 15px;
+}
+
+.notes-list {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.note-item {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-left: 4px solid #333;
+    padding: 10px 40px 10px 15px; /* Добавлен отступ слева под крестик */
+    margin-bottom: 10px;
+    border-radius: 5px;
+    position: relative;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center; /* Центрируем по вертикали */
+    justify-content: space-between; /* Распределяем содержимое */
+    min-height: 44px; /* Можно регулировать под нужный внешний вид */
+}
+
+.dark-mode .note-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-left-color: #fff;
+    color: #fff;
+}
+
+.note-item p {
+    margin: 0;
+    flex-grow: 1;
+    word-wrap: break-word;
+}
+
+.note-item button.delete-note {
+    position: absolute;
+    right: 12px;
+    top: 50%; /* Сдвигаем на 50% высоты */
+    transform: translateY(-50%); /* Точное центрирование */
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 40px;
+    cursor: pointer;
+    display: none;
+}
+
+.note-item:hover button.delete-note {
+    display: inline-block;
 }
