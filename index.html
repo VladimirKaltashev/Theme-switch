@@ -2,26 +2,30 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Тестовая страница</title>
+    <title>Переключение темы</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="theme-toggle-container">
+        <button id="toggleBtn" aria-label="Переключить тему" title="Переключить светлую/тёмную тему">
+            <img id="themeIcon" src="moon.svg" alt="Иконка темы" width="24" height="24">
+        </button>
+    </div>
+
     <h1 id="title">Привет!</h1>
-    <button id="toggleBtn">Темная тема</button>
+    
+    <div class="notes-container">
+        <h2>Мои заметки</h2>
+        <textarea id="notesTextarea" placeholder="Напишите здесь свою заметку..."></textarea>
+        <div class="notes-controls">
+            <button id="saveNote">Добавить</button>
+            <button id="clearNote">Очистить</button>
+        </div>
 
-    <script>
-        const body = document.body
-        const button = document.getElementById("toggleBtn");
+        <!-- Список заметок -->
+        <div id="notesList" class="notes-list"></div>
+    </div>
 
-        button.addEventListener("click", () => {
-            body.classList.toggle("dark-mode");
-
-            if (body.classList.contains("dark-mode")) {
-                button.textContent = "Светлая тема";
-            } else {
-                button.textContent = "Темная тема";
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
